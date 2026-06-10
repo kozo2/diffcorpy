@@ -3,11 +3,15 @@ name: python
 on:
   push:
     paths:
-      - "python/**"
+      - "src/**"
+      - "tests/**"
+      - "pyproject.toml"
       - ".github/workflows/python.yml"
   pull_request:
     paths:
-      - "python/**"
+      - "src/**"
+      - "tests/**"
+      - "pyproject.toml"
       - ".github/workflows/python.yml"
 
 jobs:
@@ -17,9 +21,6 @@ jobs:
       fail-fast: false
       matrix:
         python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
-    defaults:
-      run:
-        working-directory: python
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
